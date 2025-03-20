@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-CSRF_TRUSTED_ORIGINS = ["https://web-production-bea96.up.railway.app/"]
+CSRF_TRUSTED_ORIGINS = ["https://raysidence.up.railway.app/"]
 
 
 # Quick-start development settings - unsuitable for production
@@ -133,7 +133,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'rooms_app/static/rooms_app'),
+    os.path.join(BASE_DIR, 'rooms_app/static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'rooms_app/staticfiles')
