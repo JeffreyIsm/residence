@@ -31,7 +31,7 @@ CSRF_TRUSTED_ORIGINS = ["https://raysidence.up.railway.app/"]
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG') == 'True'
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
