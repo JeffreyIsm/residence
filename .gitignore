@@ -8,7 +8,7 @@ db.sqlite3
 __pycache__/
 
 # Ignore static files (if collected separately)
-staticfiles/
+
 
 # Ignore environment variables (if you use a `.env` file)
 .env
