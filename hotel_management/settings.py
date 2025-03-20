@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-CSRF_TRUSTED_ORIGINS = ["https://raysidence.up.railway.app/"]
+CSRF_TRUSTED_ORIGINS = ["https://raysidence.up.railway.app"]
 
 
 # Quick-start development settings - unsuitable for production
