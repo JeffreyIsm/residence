@@ -76,23 +76,17 @@ WSGI_APPLICATION = 'hotel_management.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-import dj_database_url
-DATABASES = {
-    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
-}
 
-'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hotel',   # The PostgreSQL database name
         'USER': 'postgres',    # Your PostgreSQL username
         'PASSWORD': '121081',  # Your PostgreSQL password
-        'HOST': 'localhost',  # Or the server address if not local
+        'HOST': 'yamabiko.proxy.rlwy.net',  # Or the server address if not local
         'PORT': '5432',       # Default PostgreSQL port
     }
 }
-'''
 
 
 # Password validation
