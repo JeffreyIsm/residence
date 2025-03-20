@@ -1,0 +1,73 @@
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Management System</title>
+  <link rel="stylesheet" href="{% static 'rooms_app/styles.css' %}">
+</head>
+
+<body>
+  <script src="{% static 'rooms_app/script.js' %}"></script>
+ 
+  <header>
+    <h1>Tulodong 111 Raysidence</h1>
+  </header>
+
+  <div class="symbol-guide">
+    <div class="guide-item">
+      <div class="color-box unused"></div>
+      <span>Unused (Red)</span>
+    </div>
+    <div class="guide-item">
+      <div class="color-box occupied"></div>
+      <span>Occupied (Yellow)</span>
+    </div>
+    <div class="guide-item">
+      <div class="color-box vacant"></div>
+      <span>Vacant (Green)</span>
+    </div>
+    <div class="guide-item">
+      <div class="color-box others"></div>
+      <span>Others (Gray)</span>
+    </div>
+  </div>
+
+  <section class="rooms">
+    {% for row in room_numbers %}
+      <div class="row">
+        {% for number in row %}
+          {% with status=room_statuses|get_item:number|default:"other" %}
+            <div class="room-box {{ status|lower }}">
+              <a href="{% url 'room_detail' number %}">{{ number }}</a>
+            </div>
+          {% endwith %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </section>
+
+  <div class="button-container">
+    <a href="{% url 'download_excel' %}">
+      <button class="download-button">Download Data as Excel</button>
+    </a>
+  </div>
+
+  <div style="margin:20px">
+    <p>
+      <strong style="color: red; font-size: 25px;">NOTICE!!! (scroll down)</strong>
+      <li>
+        Please close the page once done. Do not keep it online/idle when you are away, as it is running under a free website hoster with limited access.
+      </li>
+      <li>
+        It is advised to download the data as excel (button above) after you make updates to the information, so that you won't lose data if any error happens to the website.
+      </li>
+    </p>
+  </div>
+  
+  
+</body>
+</html>

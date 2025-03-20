@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Information</title>
+  <link rel="stylesheet" href="{% static 'rooms_app/styles.css' %}">
+</head>
+
+<body>
+  <script src="{% static 'rooms_app/script.js' %}"></script>
+
+  <header>
+    <h1>Room {{ room.room_number }}</h1>
+  </header>
+
+  <section class="tenant-info-container">
+    <section class="tenant-info">
+      <div id="room-details">
+        <p><strong>Orientation:</strong> {{ room.orientation }}</p>
+        <p><strong>Window size:</strong> {{ room.window_size }}</p>
+        <p><strong>Furniture:</strong> {{ room.furniture }}</p>
+        <p><strong>Other notes:</strong> {{ room.notes }}</p>
+        <p><strong>Status:</strong> {{ room.status }}</p>
+      </div>
+    </section>
+  </section>
+
+  <div class="button-container">
+    <a href="{% url 'edit_room' room.room_number %}" class="edit-button">Edit Room Details</a>
+  </div>
+
+
+
+
+
+  <section class="tenant-info-container">
+    <section class="tenant-info">
+      <div id="room-details">
+        <p><strong>First Name:</strong> {{ tenant.first_name }}</p>
+        <p><strong>Middle Name:</strong> {{ tenant.middle_name }}</p>
+        <p><strong>Last Name:</strong> {{ tenant.last_name }}</p>
+        <p><strong>Nickname:</strong> {{ tenant.nick_name }}</p>
+        <p><strong>Check-in Date:</strong> {{ tenant.checkin_date }}</p>
+        <p><strong>Payment Due Date:</strong> {{ tenant.payment_due_date }}</p>
+        <p><strong>Parking Spot:</strong> {{ tenant.parking_spot|yesno:"Yes,No" }}</p>
+      </div>
+    </section>
+  </section>
+
+  <div class="button-container">
+    <a href="{% url 'edit_tenant' room.room_number %}" class="edit-button">Edit Tenant Information</a>
+  </div>
+
+  <div class="button-container">
+    <a href="{% url 'index' %}" class="back-button">Back to Room List</a>
+  </div>
+
+</body>
+</html>
