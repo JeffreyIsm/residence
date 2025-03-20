@@ -1,0 +1,330 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* guide colors */
+.symbol-guide {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+  
+.guide-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+.color-box {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border:2px solid black;
+  }  
+
+/* form */
+label {
+    color:black;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+textarea {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    height:130px;
+}
+
+select {
+    font-size: 16px;
+}
+
+input {
+    font-size: 16px;
+}
+
+
+/* index boxes */
+
+.room-box {
+    display: inline-block;
+    width: 5%;
+    min-width: 80px; /* Prevents the box from getting too small */
+    height: 80px; /* Ensures consistent height */
+    margin: 0.70%;
+    margin-bottom: 1.5%;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    /* Use flexbox to center content */
+    display: flex;
+    justify-content: center; /* Centers text horizontally */
+    align-items: center; /* Centers text vertically */
+    word-wrap: break-word; /* Ensures long text breaks properly */
+    overflow: hidden; /* Prevents text from spilling outside */
+}
+
+.room-box:hover {
+    background-color: #f0f0f0;
+}
+
+.download-button {
+    background-color:rgb(244, 164, 4);
+    font-size: 25px;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-bottom:10px;
+}
+
+.download-button:hover {
+    background-color: rgb(196, 141, 29);
+    cursor: pointer;
+}
+
+/* Layout for index page */
+.rooms {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+    padding-left:1px;
+    padding-right:1px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.room-box a {
+    display: block;
+    width: 90%;  /* Ensures anchor tag takes up full width of room-box */
+    height: 90%;  /* Ensures anchor tag takes up full height of room-box */
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    font-size: 125%;  /* Control font size separately */
+    box-sizing: border-box;  /* Ensures padding is included inside width and height */
+}
+
+.room-box a:hover {
+    background-color: #45a049;
+}
+
+/* CHANGING COLORS CSS */
+/* Occupied Room - Yellow */
+.occupied {
+    background-color: yellow;
+  }
+  
+/* Vacant Room - Green */
+.vacant {
+    background-color: rgb(22, 239, 22);
+  }
+  
+  /* Unused Room - Red */
+.unused {
+    background-color: red;
+  }
+  
+  /* Other Status - Gray */
+.others {
+    background-color: gray;
+  }
+  
+
+/* Styles for room information page (room.html) */
+.tenant-info {
+    max-width: 750px;
+    margin: 15px auto;
+    background-color: #fff;
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns content at the top */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    gap: 10px; /* Adds spacing between buttons */
+    margin-top: 20px; /* Add some space from the content */
+}
+
+.edit-button, .back-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+.back-button {
+    background-color: #333;
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
+.save-button {
+    background-color:#1bd121;
+    font-size: 25px;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-right:20px;
+}
+
+.save-button:hover {
+    background-color: #259e29;
+    cursor: pointer;
+}
+
+
+
+/* EDIT ROOM CONTAINER */
+.edit-room-container {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+
+#room-details {
+    text-align: left;
+}
+
+#room-details p {
+    margin: 10px 0;
+}
+
+#room-number {
+    font-weight: bold;
+    font-size: 32px;
+    color: #333;
+}
+
+strong {
+    color: #333;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 1024px) {
+    .room-box {
+        width: 5%; /* Increase width on medium screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .room-box {
+        width: 5%; /* Increase width on smaller screens */
+    }
+
+    .tenant-info {
+        flex-direction: column; /* Stack tenant info and notes box vertically */
+        margin: 10px auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .room-box {
+        width: 30%; /* Make boxes larger for mobile */
+    }
+}
+
+/* Container for both the tenant info and notes box */
+.room-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 80%; /* Adjust this to fit the content as needed */
+    padding: 20px 0;
+}
+
+/* New Notes Box Styling */
+.notes-box {
+    width: 48%; /* Same as tenant info to align side by side */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.notes-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+
+/* Responsive layout: Stack the boxes vertically on smaller screens */
+@media (max-width: 768px) {
+    .notes-box {
+        width: 100%; /* Makes the notes box take full width on smaller screens */
+        margin-top: 20px; /* Adds spacing between boxes */
+    }
+
+    .room-container {
+        flex-direction: column; /* Stack boxes vertically on small screens */
+    }
+}

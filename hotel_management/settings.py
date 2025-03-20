@@ -133,7 +133,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'rooms_app/static'),
+    os.path.join(BASE_DIR, 'rooms_app/static/rooms_app'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'rooms_app/staticfiles')
