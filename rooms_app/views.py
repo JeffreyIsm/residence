@@ -2,10 +2,13 @@ from django.shortcuts import render
 from .models import Room, Tenant
 from .forms import RoomForm, TenantForm
 from django.shortcuts import render,  redirect
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
 # View to show all rooms
+@login_required
 def index(request):
     #fetch all rooms from database
     rooms = Room.objects.all()
@@ -26,6 +29,7 @@ def index(request):
 #gets all data from database(all rooms), sending them to index, display all rooms on website
 
 # View to show room details
+@login_required
 def room_detail(request, room_number):
     try:
         room = Room.objects.get(room_number=room_number)
@@ -55,7 +59,7 @@ def room_detail(request, room_number):
     return render(request, 'rooms_app/room.html', {'room': room, 'tenant':tenant})
 #fetching data of specific room from database, showing them on room.html page
 
-
+@login_required
 def edit_room(request, room_number):
     # Fetch the room, but without unpacking as a tuple
     room = Room.objects.get_or_create(
@@ -79,6 +83,7 @@ def edit_room(request, room_number):
 
     return render(request, 'rooms_app/edit.html', {'form': form, 'room_number': room_number})
 
+@login_required
 def edit_tenant(request, room_number):
     room = Room.objects.get_or_create(
         room_number=room_number,

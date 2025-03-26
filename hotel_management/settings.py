@@ -83,7 +83,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'hotel_management.wsgi.application'
 
-LOGIN_REDIRECT_URL = '/index/'  # Redirect after successful login
+LOGIN_REDIRECT_URL = '/'  # Redirect after successful login
 LOGIN_URL = '/login/'  # Login page URL
 
 
