@@ -12,5 +12,5 @@ class TenantForm(forms.ModelForm):
         fields = ['first_name', 'middle_name', 'last_name', 'nick_name', 'checkin_date', 'payment_due_date', 'parking_spot']
         widgets = {
             'checkin_date': forms.DateInput(attrs={'type': 'date'}),
-            'payment_due_date': forms.DateInput(attrs={'type': 'date'}),
+            'payment_due_date': forms.NumberInput(attrs={'min': 1, 'max': 31}),
         }
