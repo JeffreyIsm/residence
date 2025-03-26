@@ -19,7 +19,11 @@ import environ
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+#TESTING SWITCH THE HASHTAG COMMENT
+#environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+environ.Env.read_env(os.path.join(BASE_DIR, '.env.local'))
+
 
 CSRF_TRUSTED_ORIGINS = ["https://raysidence.up.railway.app"]
 
@@ -78,6 +82,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'hotel_management.wsgi.application'
+
+LOGIN_REDIRECT_URL = '/index/'  # Redirect after successful login
+LOGIN_URL = '/login/'  # Login page URL
 
 
 # Database
@@ -144,3 +151,5 @@ STATICSTORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True

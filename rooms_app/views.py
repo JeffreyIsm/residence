@@ -39,9 +39,22 @@ def room_detail(request, room_number):
             'notes': 'N/A',
             'status': 'Vacant'
         }
+    
+    tenant = Tenant.objects.filter(room__room_number=room_number).first()
+    if not tenant:
+        tenant = {
+            'first_name': 'N/A',
+            'middle_name': 'N/A',
+            'last_name': 'N/A',
+            'nick_name': 'N/A',
+            'checkin_date': 'N/A',
+            'payment_due_date': 'N/A',
+            'parking_spot': 'N/A'
+        }
 
-    return render(request, 'rooms_app/room.html', {'room': room})
+    return render(request, 'rooms_app/room.html', {'room': room, 'tenant':tenant})
 #fetching data of specific room from database, showing them on room.html page
+
 
 def edit_room(request, room_number):
     # Fetch the room, but without unpacking as a tuple
@@ -65,25 +78,6 @@ def edit_room(request, room_number):
         form = RoomForm(instance=room)
 
     return render(request, 'rooms_app/edit.html', {'form': form, 'room_number': room_number})
-
-
-
-# TENANT BOX
-def tenant_detail(request, room_number):
-    tenant = Tenant.objects.filter(room_number=room_number).first()
-
-    if not tenant:
-        tenant = {
-            'first_name': 'N/A',
-            'middle_name': 'N/A',
-            'last_name': 'N/A',
-            'nick_name': 'N/A',
-            'checkin_date': 'N/A',
-            'payment_due_date': 'N/A',
-            'parking_spot': 'N/A'
-        }
-
-    return render(request, 'rooms_app/tenant_detail.html', {'tenant': tenant, 'room_number': room_number})
 
 def edit_tenant(request, room_number):
     room = Room.objects.get_or_create(
