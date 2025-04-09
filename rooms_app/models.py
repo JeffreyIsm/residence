@@ -9,6 +9,7 @@ class Room(models.Model):
 
     STATUS_CHOICES = [
         ('occupied', 'Occupied'),
+        ('occupiedpark', 'OccupiedPark'),
         ('vacant', 'Vacant'),
         ('unused', 'Unused'),
         ('others', 'Others'),
@@ -19,7 +20,7 @@ class Room(models.Model):
     window_size = models.CharField(max_length=10, choices=WINDOW_CHOICES,blank=True,null=True)
     furniture = models.TextField(blank=True, null=True)
     notes = models.TextField(blank=True, null=True)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES,blank=True, null=True)
+    status = models.CharField(max_length=15, choices=STATUS_CHOICES,blank=True, null=True)
 
     def __str__(self):
         return f"Room {self.room_number}"

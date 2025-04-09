@@ -1,3 +1,5 @@
+/*Run python manage.py collectstatic when done*/
+
 /* General styles */
 body {
     font-family: Arial, sans-serif;
@@ -160,17 +162,21 @@ input {
 /* CHANGING COLORS CSS */
 /* Occupied Room - Yellow */
 .occupied {
-    background-color: yellow;
+    background-color: blue;
   }
-  
+
+.occupied-park {
+    background-color: purple;
+}
+
 /* Vacant Room - Green */
 .vacant {
-    background-color: rgb(22, 239, 22);
+    background-color: red;
   }
   
   /* Unused Room - Red */
 .unused {
-    background-color: red;
+    background-color: yellow;
   }
   
   /* Other Status - Gray */

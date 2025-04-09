@@ -21,8 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 
 #TESTING SWITCH THE HASHTAG COMMENT
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-#environ.Env.read_env(os.path.join(BASE_DIR, '.env.local'))
+#environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+environ.Env.read_env(os.path.join(BASE_DIR, '.env.local'))
 
 
 CSRF_TRUSTED_ORIGINS = ["https://raysidence.up.railway.app"]
