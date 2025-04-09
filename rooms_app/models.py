@@ -37,3 +37,12 @@ class Tenant(models.Model):
 
     def __str__(self):
         return self.first_name + '' + self.last_name
+    
+    def save(self, *args, **kwargs):
+        if self.room:
+            if self.parking_spot:
+                self.room.status = 'occupiedpark'
+            else:
+                self.room.status = 'occupied'
+            self.room.save()
+        super().save(*args, **kwargs)
