@@ -43,10 +43,13 @@
   <section class="rooms">
     {% for row in room_numbers %}
       <div class="row">
-        {% for number in row %}
-          {% with status=room_statuses|get_item:number|default:"other" %}
-            <div class="room-box {{ status|lower }}">
-              <a href="{% url 'room_detail' number %}">{{ number }}</a>
+        {% for number in row %} 
+          {% with room=room_statuses|get_item:number %}
+            <div class="room-box {{ room.status|lower }}">
+              <a href="{% url 'room_detail' number %}">
+                <span class="room-number">{{ number }}</span><br>
+                <span class="due-date">Due: {{ room.payment_due_date }}</span>
+              </a>
             </div>
           {% endwith %}
         {% endfor %}

@@ -13,8 +13,18 @@ def index(request):
     #fetch all rooms from database
     rooms = Room.objects.all()
     #store status of each roomm in a dictionary
-    room_statuses = {room.room_number: room.status for room in rooms}
+    room_statuses = {
+        room.room_number: {
+            'status': room.status,
+            'payment_due_date':None,
+        }
+        for room in rooms
+    }
 
+    tenants = Tenant.objects.select_related('room')
+    for T in tenants:
+        if T.room and T.room.room_number in room_statuses:
+            room_statuses[T.room.room_number]['payment_due_date'] = T.payment_due_date
 
     room_numbers = [
         ["100", "102", "104", "105", "106", "107", "108", "109", "110", "111"],
