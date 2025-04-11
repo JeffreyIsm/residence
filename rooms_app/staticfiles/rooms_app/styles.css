@@ -1,3 +1,5 @@
+/*Run python manage.py collectstatic when done*/
+
 /* General styles */
 body {
     font-family: Arial, sans-serif;
@@ -80,11 +82,11 @@ input {
 .room-box {
     display: inline-block;
     width: 5%;
-    min-width: 80px; /* Prevents the box from getting too small */
-    height: 80px; /* Ensures consistent height */
+    min-width: 90px; /* Prevents the box from getting too small */
+    height: 90px; /* Ensures consistent height */
     margin: 0.70%;
     margin-bottom: 1.5%;
-    padding: 5px;
+    padding: 10px;
     background-color: #fff;
     border: 1px solid #ddd;
     text-align: center;
@@ -141,16 +143,27 @@ input {
 
 .room-box a {
     display: block;
-    width: 90%;  /* Ensures anchor tag takes up full width of room-box */
-    height: 90%;  /* Ensures anchor tag takes up full height of room-box */
-    padding: 15px;
+    width: 100%;  /* Ensures anchor tag takes up full width of room-box */
+    height: 100%;  /* Ensures anchor tag takes up full height of room-box */
+    padding: 10px;
     background-color: #4CAF50;
     color: white;
     border-radius: 5px;
     text-align: center;
     transition: background-color 0.3s ease;
-    font-size: 125%;  /* Control font size separately */
     box-sizing: border-box;  /* Ensures padding is included inside width and height */
+}
+
+.room-box a .room-number {
+    font-size: 1.6rem; /* Bigger font for room number */
+    font-weight: bold;
+}
+
+.room-box a .due-date {
+    font-size: 1rem; /* Smaller font for due date */
+    color: #ffe; /* Light color (or adjust as needed) */
+    display: block;
+    margin-top: 3px;
 }
 
 .room-box a:hover {
@@ -160,17 +173,21 @@ input {
 /* CHANGING COLORS CSS */
 /* Occupied Room - Yellow */
 .occupied {
-    background-color: yellow;
+    background-color: blue;
   }
-  
+
+.occupiedpark {
+    background-color: purple;
+}
+
 /* Vacant Room - Green */
 .vacant {
-    background-color: rgb(22, 239, 22);
+    background-color: red;
   }
   
   /* Unused Room - Red */
 .unused {
-    background-color: red;
+    background-color: yellow;
   }
   
   /* Other Status - Gray */
@@ -199,7 +216,7 @@ input {
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
     gap: 10px; /* Adds spacing between buttons */
-    margin-top: 20px; /* Add some space from the content */
+    margin-top: 10px; /* Add some space from the content */
 }
 
 .edit-button, .back-button {
